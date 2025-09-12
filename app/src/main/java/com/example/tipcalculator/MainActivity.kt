@@ -125,7 +125,7 @@ fun RoundTheTipRow(
     }
 }
 
-/* Composable avec deux etats */
+/* Composable avec trois etats */
 @Composable
 fun TipTimeLayout() {
     var amountInput by remember { mutableStateOf("") } /* La variable amountInput est un etat
