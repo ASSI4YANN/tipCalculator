@@ -5,7 +5,6 @@ import org.junit.Test
 import java.text.NumberFormat
 import org.junit.Assert.assertEquals
 
-
 class TipCalculatorTests {
     @Test
     fun calculateTip_20PercentNoRoundUp() {
