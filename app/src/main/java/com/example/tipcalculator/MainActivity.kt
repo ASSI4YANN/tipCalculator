@@ -203,7 +203,16 @@ fun TipTimeLayout() {
  * according to the local currency.
  * Example would be "$10.00".
  */
+<<<<<<< HEAD
 private fun calculateTip(amount: Double,tipPercent: Double /*= 15.0*/,roundUp: Boolean): String {
+=======
+@VisibleForTesting
+internal fun calculateTip(
+    amount: Double,
+    tipPercent: Double /*= 15.0*/,
+    roundUp: Boolean
+): String {
+>>>>>>> 65587a6 (Ajout de tests automatisés)
     var tip = tipPercent / 100 * amount
     if (roundUp) {
         tip = kotlin.math.ceil(tip)
