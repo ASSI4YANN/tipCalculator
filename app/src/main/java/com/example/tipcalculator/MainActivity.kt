@@ -76,24 +76,19 @@ fun EditNumberField(
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    /*var amountInput by remember { mutableStateOf("") } *//* La variable amountInput est un etat
-    car sa valeur susceptible de changer au fil du temps */
-    //val amount = amountInput.toDoubleOrNull() ?: 0.0
-    /* ?:  renvoie l'expression qui le précède si la valeur n'est pas null et l'expression qui le suit lorsque la valeur est null,*/
-    /* alors que toDoubleOrNull() convertir le nombre saisi en nombre décimal */
-    //val tip = calculateTip(amount) // tip renvoie la valeur du pourboire
+   
     TextField(
-        value = value/*amountInput*/,
+        value = value,
         leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
-        onValueChange = onValueChange /*{ amountInput = it }*/,// onValueChange rnevoi la valeur du value
-        label = { Text(stringResource(label/*R.string.bill_amount*/)) },
-        modifier = modifier,/*Modifier.fillMaxWidth()*/ /* Permet à TextField de remplis la largeur maximale*/
+        onValueChange = onValueChange ,// onValueChange renvoi la valeur du value
+        label = { Text(stringResource(label)) },
+        modifier = modifier, /* Permet à TextField de remplis la largeur maximale*/
         singleLine = true,// Permet d'avoir une seule ligne pour la saisir du montant
         keyboardOptions = keyboardOptions
         /*keyboardOptions = KeyboardOptions.Default.copy(
         keyboardType = KeyboardType.Number,
-        imeAction = ImeAction.Next)// imeAction pour définir un bouton d'action*/
-        /* permet de personnalisé le clavier  */
+        imeAction = ImeAction.Next)/* imeAction pour définir un bouton d'action */
+                                   /* permet de personnalisé le clavier */
     )
 }
 
@@ -114,10 +109,10 @@ fun RoundTheTipRow(
             text = stringResource(R.string.round_up_tip)
         )
         Switch(
-            checked = roundUp /*roundUp*/,/*  Indique si le bouton bascule est activé. Il s'agit de
-            l'état du composable Switch.*/
-            onCheckedChange = onRoundUpChanged,/*Rappel à appeler en cas
-            de clic sur le bouton bascule.*/
+            checked = roundUp,/* Indique si le bouton bascule est activé. Il s'agit de
+            l'état du composable Switch. */
+            onCheckedChange = onRoundUpChanged, /* Rappel à appeler en cas
+            de clic sur le bouton bascule. */
             modifier = modifier
                 .fillMaxSize()
                 .wrapContentWidth(Alignment.End)
@@ -205,7 +200,7 @@ fun TipTimeLayout() {
  */
 
 @VisibleForTesting
-internal fun calculateTip(amount: Double,tipPercent: Double /*= 15.0*/,roundUp: Boolean): String {
+internal fun calculateTip(amount: Double,tipPercent: Double,roundUp: Boolean): String {
     var tip = tipPercent / 100 * amount
     if (roundUp) {
         tip = kotlin.math.ceil(tip)
